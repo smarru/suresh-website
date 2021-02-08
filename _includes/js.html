@@ -1,0 +1,93 @@
+<!-- Cannot make async calls for jQuery or Semantic. Breaks Cards, Page Bar, others. -->
+<script src="{{site.url}}/js/vendor/jquery-1.10.1.js"></script>
+<script src="{{site.url}}/js/vendor/bootstrap.js"></script>
+<script src="{{site.url}}/js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.11/jquery.csv.min.js"></script>
+<script>
+    var chBar = document.getElementById("chBar");
+
+
+    const rawData = "Dataset Name,Year,Count\n" +
+        "Publications,2005,2\n" +
+        "Publications,2006,4\n" +
+        "Publications,2007,6\n" +
+        "Publications,2008,6\n" +
+        "Publications,2009,4\n" +
+        "Publications,2010,4\n" +
+        "Publications,2011,9\n" +
+        "Publications,2012,12\n" +
+        "Publications,2013,13\n" +
+        "Publications,2014,9\n" +
+        "Publications,2015,9\n" +
+        "Publications,2016,6\n" +
+        "Publications,2017,7\n" +
+        "Publications,2018,13\n" +
+        "Publications,2019,7\n" +
+        "Publications,2020,4\n" +
+        "Citations,2005,0\n" +
+        "Citations,2006,26\n" +
+        "Citations,2007,60\n" +
+        "Citations,2008,49\n" +
+        "Citations,2009,43\n" +
+        "Citations,2010,41\n" +
+        "Citations,2011,59\n" +
+        "Citations,2012,38\n" +
+        "Citations,2013,52\n" +
+        "Citations,2014,88\n" +
+        "Citations,2015,102\n" +
+        "Citations,2016,107\n" +
+        "Citations,2017,84\n" +
+        "Citations,2018,128\n" +
+        "Citations,2019,118\n" +
+        "Citations,2020,106\n";
+
+    const data = $.csv.toObjects(rawData);
+    const publications = data.map(value => value.Count);
+    const citations = data.map(value => value.Count);
+    const labels = data.map(value => value.Year);
+
+
+    var chartData = {
+        labels: labels,
+        datasets: [
+            {
+                barPercentage: 0.5,
+                barThickness: 40,
+                maxBarThickness: 8,
+                minBarLength: 2,
+                data: publications,
+                backgroundColor: '#4653ff',
+                label: 'Publications',
+            },
+            {
+                data: citations,
+
+                // Changes this dataset to become a line
+                type: 'line',
+                borderColor: "#c7554d",
+                label: 'Citations',
+            }
+
+        ]
+    };
+    if (chBar) {
+        new Chart(chBar, {
+            type: 'bar',
+            data: chartData,
+            options: {
+                scales: {
+                    xAxes: [{
+                        barPercentage: 0.4,
+                        categoryPercentage: 0.5
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: false
+                        }
+                    }]
+                }
+            }
+        });
+    }
+</script>

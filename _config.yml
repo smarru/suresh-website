@@ -1,0 +1,84 @@
+# Site settings
+
+title: "Suresh Marru"
+tagline: Suresh Marru | An avid Open Source advocate
+email: smarru@iu.edu
+copyright: Suresh Marru
+keywords: Cyberinfrastructure, Distributed Systems, Researcher
+
+description: > # this means to ignore newlines until "url:". One indent required.
+  Enabling Science and Engineering Innovations
+
+# the base hostname & protocol for your site
+url: "https://sureshmarru.com"
+
+default_image: /img/airavata.svg
+
+# Pre-processing
+
+markdown: kramdown
+highlighter: pygments
+safe: true
+permalink: pretty # YYYY/MM/DD/page-title/index.html
+lsi: true # Lexical analysis (true) takes longer for higher quality
+
+sass:
+  sass_dir: _sass
+
+# Exclude from Jekyll processing
+
+exclude: ["vendor", "node_modules", "gulpfile.js", "package.json", "Gemfile", "Gemfile.lock", "LICENSE", "feed.xml"]
+
+# Lists
+
+tag_items: 20     # Applies to categories and tags lists
+recent_items: 3  # Applies to recent posts, apps lists
+related_items: 5  # Applies to related posts and apps lists
+
+# Layout
+
+pagebar: true # Show (true) page sidebar menu or hide (false) 
+postbar: true # Show (true) post sidebar or hide (false) 
+
+# Features
+
+reading_time: true    # Show est. reading time for posts
+facebook: false        # Use facebook features
+comments: disqus      # Switch disqus | facebook | none - comments. facebook = true required for facebook comments
+
+# Embeds
+
+disqus_name: opentheme            # Your site name at Disqus
+
+youtube_controls: 0               # Turn on=1/off=0 Youtube player features when embedding videos
+
+google_map_zoom: 16               # 1=Global zoom 18=Street Level
+google_map_view: satellite        # hybrid | satellite | roadmap
+google_map_height: 450            # Default map height. Width adjusts to container.
+
+# API Keys. PLEASE DO NOT USE THESE KEYS. Get your own at links in comments.
+
+google_analytics_ua: "" # Google Analytics site specific id
+
+collections:
+  docs:
+    permalink: "/:collection/:path/"
+    output: true
+
+    defaults:
+    - scope:
+        path: _docs
+        type: docs
+      values:
+        layout: docs
+
+  posts:
+      permalink: "/blog/:title/"
+      output: true
+
+      defaults:
+      - scope:
+          path: _posts
+          type: posts
+        values:
+          layout: post
