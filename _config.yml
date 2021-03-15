@@ -58,7 +58,7 @@ google_map_height: 450            # Default map height. Width adjusts to contain
 
 # API Keys. PLEASE DO NOT USE THESE KEYS. Get your own at links in comments.
 
-google_analytics_ua: "" # Google Analytics site specific id
+google_analytics_ua: "G-GXGZFHVKWB" # Google Analytics site specific id
 
 collections:
   docs:
