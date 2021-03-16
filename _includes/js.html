@@ -2,7 +2,7 @@
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 <script src="{{site.url}}/js/main.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.11/jquery.csv.min.js"></script>
 <script>
     var chBar = document.getElementById("chBar");
@@ -24,23 +24,25 @@
         "Publications,2017,7\n" +
         "Publications,2018,13\n" +
         "Publications,2019,7\n" +
-        "Publications,2020,4\n" +
+        "Publications,2020,5\n" +
+        "Publications,2021,1\n" +
         "Citations,2005,0\n" +
-        "Citations,2006,26\n" +
+        "Citations,2006,27\n" +
         "Citations,2007,60\n" +
-        "Citations,2008,49\n" +
-        "Citations,2009,43\n" +
-        "Citations,2010,41\n" +
-        "Citations,2011,59\n" +
-        "Citations,2012,38\n" +
+        "Citations,2008,51\n" +
+        "Citations,2009,42\n" +
+        "Citations,2010,43\n" +
+        "Citations,2011,60\n" +
+        "Citations,2012,39\n" +
         "Citations,2013,52\n" +
         "Citations,2014,88\n" +
         "Citations,2015,102\n" +
-        "Citations,2016,107\n" +
+        "Citations,2016,108\n" +
         "Citations,2017,84\n" +
-        "Citations,2018,128\n" +
-        "Citations,2019,118\n" +
-        "Citations,2020,106\n";
+        "Citations,2018,132\n" +
+        "Citations,2019,120\n" +
+        "Citations,2020,123\n" +
+        "Citations,2021,11\n" ;
 
     const data = $.csv.toObjects(rawData);
     const publications = data.map(value => value.Count);
